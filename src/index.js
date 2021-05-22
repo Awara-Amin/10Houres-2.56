@@ -79,6 +79,20 @@ function BookList() {
 
 // const Book = (props) => {
 const Book = ({ img, title, author, number }) => {
+  // const clickHandler = () => {
+  //   alert("it should work Awara");
+  // };
+
+  const clickHandler = (e) => {
+    console.log(e);
+    console.log(e.target);
+
+    alert("it should work Awara");
+  };
+
+  const complexExample = (author) => {
+    console.log(author);
+  };
   // const Book = ({ img, title, number, author, childern }) => {
   // console.log(props);
 
@@ -87,12 +101,17 @@ const Book = ({ img, title, author, number }) => {
   // const { img, title, author, number } = props;
 
   return (
-    <article className="book">
+    <article
+      className="book"
+      onMouseOver={() => {
+        console.log(title);
+      }}
+    >
       {/* <img src={img} alt="" /> */}
 
       {/* <img src={propsOrWhatEver.img} alt="" /> */}
       <img src={img} alt="" />
-      <h1>{title}</h1>
+      <h1 onClick={() => console.log(title)}>{title}</h1>
       {/* <h1>{title}</h1> */}
       <h3>{author}</h3>
       {/* {propsOrWhatEver.childern} */}
@@ -101,6 +120,13 @@ const Book = ({ img, title, author, number }) => {
       {/* <p>{propsOrWhatEver.job}</p>
       <p>{propsOrWhatEver.title}</p> */}
       <p>{number}</p>
+      <button type="button" onClick={clickHandler}>
+        Reffrence Example
+      </button>
+
+      <button type="button" onClick={() => complexExample(author)}>
+        moreComplexExample
+      </button>
     </article>
   );
 };
