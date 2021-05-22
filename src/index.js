@@ -52,7 +52,8 @@ function BookList() {
         const { img, title, author } = anyBook;
         // return 'hi';
         return (
-          <Book key={anyBook.id} book={anyBook}>
+          // this is spread operator
+          <Book key={anyBook.id} {...anyBook}>
             {" "}
           </Book>
         );
@@ -76,13 +77,14 @@ function BookList() {
   );
 }
 
-const Book = (props) => {
+// const Book = (props) => {
+const Book = ({ img, title, author, number }) => {
   // const Book = ({ img, title, number, author, childern }) => {
-  console.log(props);
+  // console.log(props);
 
   //  destructuring, WOWWW!
   // const { img, title, author, number, childern } = propsOrWhatEver;
-  const { img, title, author, number } = props.book;
+  // const { img, title, author, number } = props;
 
   return (
     <article className="book">
